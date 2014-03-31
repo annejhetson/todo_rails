@@ -1,0 +1,20 @@
+<h1><%= @task.name %></h1>
+
+<p>Due Date: <%= @task.due_date %></p>
+
+<p>Done?: <%if @task.done %>
+            <%= "YES" %>
+          <% else %>
+            <%= "NO" %>
+          <% end %>
+          </p>
+
+
+<p><a href="/tasks/<%= @task.id %>/edit">Edit Task</a></p>
+
+<p><a href="/tasks/<%= @task.id %>"
+      data-confirm="You sure?"
+      data-method="delete"
+      rel="nofollow">Delete Task</a></p>
+
+<p><a href="/tasks">Return to Task List</a></p>

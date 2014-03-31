@@ -7,7 +7,8 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 
-group :developement do
+
+group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
