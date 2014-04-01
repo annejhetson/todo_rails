@@ -1,9 +1,13 @@
 Todo::Application.routes.draw do
+  match('lists', {via: :get, to: 'lists#index'})
+  match('lists/:id', {via: :get, to: 'lists#show'})
+
   match('tasks', {via: :get, to: 'tasks#index'})
-  match('tasks', {via: :post, to: 'tasks#create'})
+  # match('tasks', {via: :post, to: 'tasks#create'})
   match('tasks/new', {via: :get, to: 'tasks#new'})
   match('tasks/:id', {via: :get, to: 'tasks#show'})
   match('tasks/:id/edit', {via: :get, to: 'tasks#edit'})
   match('tasks/:id', {via: [:patch, :put], to: 'tasks#update'})
   match('tasks/:id', {via: :delete, to: 'tasks#destroy'})
+  match('lists/:list_id/tasks', {via: :post, to: 'tasks#create'})
 end

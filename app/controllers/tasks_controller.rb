@@ -7,7 +7,8 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
+    list = List.find(params[:list_id])
+    @task = list.tasks.new
     render('tasks/new.html.erb')
   end
 
@@ -18,7 +19,8 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(name: params[:name],
-                     due_date: params[:due_date])
+                     due_date: params[:due_date],
+                     list_id: params[:list_id])
     if @task.save
       render('tasks/success.html.erb')
     else
@@ -46,11 +48,5 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
     render('tasks/delete.html.erb')
-  end
-
-  def mark_done
-    @task = Task.find(params[:id])
-    @task.update(done: true)
-    render('tasks/done.html.erb')
   end
 end

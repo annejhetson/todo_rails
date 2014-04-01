@@ -9,7 +9,7 @@
   </ul>
 <% end %>
 
-<form action='/tasks' method='post'>
+<form action='/lists/<%= @task.list.id %>/tasks' method='post'>
   <label for="task-name">Task:</label>
   <input id="task-name" name="name" type="text" value="<%= @task.name %>">
   <p><label for="task-due-date">Due Date:</label>
