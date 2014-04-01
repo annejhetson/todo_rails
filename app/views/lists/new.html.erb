@@ -1,0 +1,17 @@
+<h3>Create a new List</h3>
+
+<% if @list.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @list.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action="/lists" method="post">
+  <label for="list-name">List:</label>
+  <input id="list-name" name="name" type="text" value="<%= @list.name %>">
+
+  <p><button>Create List</button></p>
+</form>

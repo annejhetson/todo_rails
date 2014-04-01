@@ -1,8 +1,12 @@
-<h3><%= @list.name %></h3>
+<h1><%= @list.name %></h1>
+
+<h3> Here are all your tasks in this list </h3>
 
 <ul>
-  <% @tasks.all.each do |task| %>
-    <li><a href="/lists/<%= list.id %>/<%= task.id %>"> <%= task.name %> </a></li>
-
+  <% @tasks.each do |task| %>
+    <%= task.name %>
   <% end %>
 </ul>
+
+<p><a href="<%= @list.id %>/add_task">Add a task to your list</a>
+<p><a href="/lists">Go back to list</a></p>
